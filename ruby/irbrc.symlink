@@ -3,6 +3,8 @@ require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
 require 'hirb'
+require 'ap'
+
 Hirb.enable
 
 IRB.conf[:SAVE_HISTORY] = 1000
@@ -42,3 +44,9 @@ def r
 end
 
 load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
+
+IRB::Irb.class_eval do
+  def output_value
+    ap @context.last_value
+  end
+end
