@@ -1,6 +1,8 @@
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
+autoload colors; colors;
+
 git_branch() {
   echo $(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
@@ -52,7 +54,7 @@ need_push () {
 rvm_prompt(){
   if $(which rvm &> /dev/null)
   then
-	  echo "%{\e[1;33m%}$(~/.rvm/bin/rvm-prompt)%{\e[0m%} · "
+	  echo "%{$fg[magenta]%}$(~/.rvm/bin/rvm-prompt)%{\e[0m%} · "
 	else
 	  echo ""
   fi
