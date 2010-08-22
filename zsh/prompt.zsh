@@ -54,9 +54,9 @@ need_push () {
 rvm_prompt(){
   if $(which rvm &> /dev/null)
   then
-	  echo "%{$fg[magenta]%}$(~/.rvm/bin/rvm-prompt)%{\e[0m%} · "
-	else
-	  echo ""
+    echo "%{$fg[magenta]%}$(~/.rvm/bin/rvm-prompt)%{\e[0m%} · "
+  else
+    echo ""
   fi
 }
 
