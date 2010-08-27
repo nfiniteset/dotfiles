@@ -1,7 +1,3 @@
-alias r='rvm use 1.8.7'
-
-alias f='RAILS_ENV=fi'
-
 alias sc='script/console'
 alias ss='script/server -p `available_rails_port`'
 alias sg='script/generate'
