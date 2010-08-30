@@ -15,6 +15,7 @@ task :symlinks do
   skip_all = false
   overwrite_all = false
   backup_all = false
+
   linkables.each do |linkable|
     overwrite = false
     backup = false
@@ -33,7 +34,7 @@ task :symlinks do
         when 'S' then skip_all = true
         end
       end
-      FileUtils.rm_f(target) if overwrite || overwrite_all
+      FileUtils.rm_rf(target) if overwrite || overwrite_all
       `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
     end
     `ln -s "$PWD/#{linkable}" "#{target}"`
