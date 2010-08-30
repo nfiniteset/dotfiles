@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:albertllop/geoffrey.git
-  revision: a1fc5c8
+  revision: a1fc5c8d3bb4f2781cc637b89d9e9053a88343c4
   specs:
     geoffrey (0.0.3)
       plist4r
