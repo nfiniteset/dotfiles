@@ -7,6 +7,7 @@ set guioptions-=T
 "positioned
 winpos 0 0
 colors vividchalk
+set gfn=Menlo:h12
 set anti " antialiasing
 set guioptions=gemc
 set ch=1
