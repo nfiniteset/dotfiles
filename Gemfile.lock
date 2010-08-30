@@ -1,13 +1,14 @@
-PATH
-  remote: /Users/albert/code/geoffrey
+GIT
+  remote: git@github.com:albertllop/geoffrey.git
+  revision: a1fc5c8
   specs:
-    geoffrey (0.0.0)
+    geoffrey (0.0.3)
       plist4r
 
 GEM
   remote: http://rubygems.org/
   specs:
-    haml (3.0.17)
+    haml (3.0.18)
     libxml-ruby (1.1.4)
     libxml4r (0.2.6)
       libxml-ruby (>= 1.1.3)

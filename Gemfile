@@ -1,4 +1,4 @@
 source :gemcutter
 
 gem 'rake'
-gem 'geoffrey', :path => "~/code/geoffrey"
+gem 'geoffrey', :git => "git@github.com:albertllop/geoffrey.git"
