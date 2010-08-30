@@ -9,7 +9,7 @@ winpos 0 0
 colors vividchalk
 set anti " antialiasing
 set guioptions=gemc
-set ch=4
+set ch=1
 
 if has("gui_macvim")
   " Command-Shift-F for Ack
