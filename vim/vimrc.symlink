@@ -116,6 +116,8 @@ let mapleader = ","
 
 map <s-D-Left> <C-w><Left>
 map <s-D-Right> <C-w><Right>
+map <s-D-Up> <C-w><Up>
+map <s-D-Down> <C-w><Down>
 
 imap <D-1> <Esc>:tabn 1<CR>i
 imap <D-2> <Esc>:tabn 2<CR>i
