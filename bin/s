@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+debugger = (ARGV[0] && ARGV[0].first == "d")
+
+if File.exists?(ENV["PWD"] + "/script/server")
+  system "script/server#{debugger ? ' --debugger' : ''}"
+elsif File.exists?(ENV["PWD"] + "/config.ru")
+  system "rails server#{debugger ? ' --debugger' : ''}"
+else
+  puts "No inside a rails app"
+end
