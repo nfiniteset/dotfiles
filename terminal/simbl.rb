@@ -9,7 +9,7 @@ end
 # And now the two bundles I like to use
 # Blurminal, makes terminal's background blurry :D
 Geoffrey.package do
-  url "http://github.com/albertllop/Blurminal/raw/master/Blurminal.bundle.zip"
+  url "http://github.com/mrsimo/Blurminal/raw/master/Blurminal.bundle.zip"
   options :file => "Blurminal.bundle"
 
   def install
