@@ -1,4 +1,6 @@
-# holman does dotfiles
+# Mr. Simo does dotfiles
+
+This is a fork of the original dotfiles promoted by [holman](http://github.com/holman). I've personalized this README a bit, but it's mostly untouched.
 
 ## dotfiles
 
@@ -6,15 +8,15 @@ Your dotfiles are how you personalize your system. These are mine. The very prej
 
 I was a little tired of having long alias files and everything strewn about (which is extremely common on other dotfiles projects, too). That led to this project being much more topic-centric. I realized I could split a lot of things up into the main areas I used (Ruby, git, system libraries, and so on), so I structured the project accordingly.
 
-If you're interested in the philosophy behind why projects like these are awesome, you might want to [read my post on the subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+If you're interested in the philosophy behind why projects like these are awesome, you might want to [read holman's post on the subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## install
 
-- `git clone git://github.com/holman/dotfiles ~/.dotfiles`
-- `cd ~/.dotfiles`
+- `git clone git://github.com/mrsimo/dotfiles`
+- `cd dotfiles`
 - `rake install`
 
-The install rake task will symlink the appropriate files in `.dotfiles` to your home directory. Everything is configured and tweaked within `~/.dotfiles`, though.
+You can put it anywhere. I like to have in my Dropbox folder, so that if I ever change something it will be replicated on all my other machines without having to pull the repository.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`, which sets up a few paths that'll be different on your particular machine.
 
@@ -26,15 +28,12 @@ Everything's built around topic areas. If you're adding a new area to your forke
 
 A lot of what's inside is just aliases: `gs` for `git status`, `gl` for `git pull --rebase --prune`, for example. You can browse the `aliases.zsh` files in each topic directory. There's also a collection of scripts in `bin` you can browse. A few notable ones:
 
-###rails
-- `s` pings your system for any running Rails apps, and `deathss` will then kill all of them indiscriminately. `ss` starts up a new Rails server on the next available port- if 3000 is taken, it'll spin up your server on 3001.
-
-###system
+### system
 - `c` is an autocomplete shortcut to your projects directory. For example, `c git` and then hitting tab will autocomplete to `github`, and then it simply changes to my `github` directory.
 - `check [filename]` is a quick script that tells you whether a domain is available to register.
 - `smartextract [filename]` will extract about a billion different compressed/uncompressed/whatever files.
 
-##moar custom
+## moar custom
 There are a few things I use to make my life awesome. They're not a required dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
 
 - If you want some more colors for things like `ls`, install grc: `brew install grc`.
