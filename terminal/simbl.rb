@@ -7,6 +7,7 @@ Geoffrey.package do
 end
 
 # And now the two bundles I like to use
+# Blurminal, makes terminal's background blurry :D
 Geoffrey.package do
   url "http://github.com/albertllop/Blurminal/raw/master/Blurminal.bundle.zip"
   options :file => "Blurminal.bundle"
@@ -18,6 +19,7 @@ Geoffrey.package do
   end
 end
 
+# Tabswitching, lets you switch tabs with cmd+number
 Geoffrey.package do
   url "http://github.com/dabeeeenster/terminaltabswitching/raw/master/TerminalTabSwitching.bundle.zip"
   options :file => "TerminalTabSwitching.bundle"
@@ -44,5 +46,5 @@ Geoffrey.plist do
   options["Window Settings"]["Pro"]["Font"].blob = true
   options["Window Settings"]["Pro"]["columnCount"] = 520
   options["Window Settings"]["Pro"]["rowCount"]    = 100
+  options["Window Settings"]["Pro"]["keyMapBoundKeys"] = {"$F709"=>"\e[26~", "F70A"=>"\e[18~", "$F70A"=>"\e[28~", "F717"=>"\e[34~", "F72C"=>"scrollPageUp:", "~F70D"=>"\e[28~", "$F70E"=>"\e[33~", "$F72C"=>"\e[5~", "F70B"=>"\e[19~", "F710"=>"\e[25~", "^F703"=>"\ef", "~F705"=>"\e[18~", "~F712"=>"\e[34~", "F72D"=>"scrollPageDown:", "~F709"=>"\e[23~", "F711"=>"\e[26~", "F704"=>"\eOP", "F70C"=>"\e[20~", "~F70A"=>"\e[24~", "$F70B"=>"\e[29~", "~F70E"=>"\e[29~", "$F70F"=>"\e[34~", "$F72D"=>"\e[6~", "F712"=>"\e[28~", "F70D"=>"\e[21~", "F705"=>"\eOQ", "~F706"=>"\e[19~", "F713"=>"\e[29~", "F70E"=>"\e[23~", "F706"=>"\eOR", "$F729"=>"\e[H", "~F70B"=>"\e[25~", "$F70C"=>"\e[31~", "F728"=>"\e[3~", "~F70F"=>"\e[31~", "F707"=>"\eOS", "~F710"=>"\e[32~", "F70F"=>"\e[24~", "F714"=>"\e[31~", "~F707"=>"\e[20~", "$F708"=>"\e[25~", "F729"=>"scrollToBeginningOfDocument:", "F715"=>"\e[32~", "F708"=>"\e[15~", "~F70C"=>"\e[26~", "$F70D"=>"\e[22~", "$F72B"=>"\e[F", "^F702"=>"\eb", "~F704"=>"\e[17~", "F716"=>"\e[33~", "F709"=>"\e[17~", "F72B"=>"scrollToEndOfDocument:", "~F711"=>"\e[33~", "~F708"=>"\e[21~"}
 end
-
