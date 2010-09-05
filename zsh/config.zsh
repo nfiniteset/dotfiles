@@ -5,7 +5,7 @@ else
 fi
 
 export EDITOR='mvim'
-export PATH=".:/usr/local/bin:/usr/local/sbin:$HOME/homebrew/bin:$ZSH/bin:$PATH"
+export PATH=".:/usr/local/bin:/usr/local/sbin:$HOME/homebrew/bin:/usr/local/mysql/bin:$ZSH/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
