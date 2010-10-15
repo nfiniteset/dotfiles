@@ -12,6 +12,9 @@ set anti " antialiasing
 set guioptions=gemc
 set ch=1
 
+" Autosave on focus lost
+au FocusLost * :wa
+
 if has("gui_macvim")
   " Command-Shift-F for Ack
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>

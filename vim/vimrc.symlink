@@ -97,13 +97,13 @@ set laststatus=2          " always show the status line
 set ignorecase            " ignore case when searching
 set nohlsearch            " don't highlight searches
 set visualbell            " shut the fuck up
-set showcmd               "show incomplete cmds down the bottom
-set showmode              "show current mode down the bottom
-set incsearch             "find the next match as we type the search
-set hlsearch              "hilight searches by default
-set nowrap                "dont wrap lines
-set linebreak             "wrap lines at convenient points
-set autoread              "reload files (no local changes only)
+set showcmd               " show incomplete cmds down the bottom
+set showmode              " show current mode down the bottom
+set incsearch             " find the next match as we type the search
+set hlsearch              " hilight searches by default
+set nowrap                " dont wrap lines
+set linebreak             " wrap lines at convenient points
+set autoread              " reload files (no local changes only)
 " -------------------------
 " /GRAPHICAL
 " -------------------------
@@ -143,6 +143,11 @@ map <D-9> :tabn 9<CR>
 " -------------------------
 " MAPPINGS
 " -------------------------
+
+"Adding #{} to AutoClose Plugin and activating it for String interpolation
+let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'}
+let g:AutoCloseProtectedRegions = ["Character"]
+
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -271,8 +276,12 @@ endfunction
 
 "indent settings
 set shiftwidth=2
+set ts=2
+set bs=2
+set shiftround
 set softtabstop=2
 set expandtab
+set smarttab
 set autoindent
 
 "folding settings
