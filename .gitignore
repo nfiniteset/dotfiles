@@ -1,2 +1,4 @@
 git/gitconfig.symlink
 .bundle
+ec2/ec2.symlink
+zsh/local.zsh
