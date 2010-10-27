@@ -56,7 +56,7 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 # /Pretty methods
 
 
-export PS1="${PURPLE}\$(rvm_prompt)${BGREENw}\$(git_dirty)${BBLUE}[${NORMAL}\w${BBLUE}] ${BBLUE}$ ${NORMAL}"
+export PS1="${PURPLE}\$(rvm_prompt)${BGREEN}\$(git_dirty)${BBLUE}[${NORMAL}\w${BBLUE}] ${BBLUE}$ ${NORMAL}"
 
 export TERM="xterm-color"
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
@@ -66,6 +66,7 @@ export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
 # -------------------------------------------------------------------
 
 test -n "$INTERACTIVE" -a -n "$LOGIN" && {
-    uname -npsr
     uptime
+    fortune | cowsay
+    echo ""
 }
