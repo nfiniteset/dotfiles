@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Albert Llop <http://simo.ws>
+#
+# Blatantly "inspired" (copied) from:
+#
+# http://github.com/ryanb/dotfiles
+# http://github.com/rtomayko/dotfiles
+# http://github.com/holman/dotfiles
+#
+
+# ----------------------------------------------------------------------
+# INCLUDES
+# ----------------------------------------------------------------------
+
+export BASHDIR=~/Dropbox/dotfiles
+
+source ~/.bash/basic
+source ~/.bash/completions
+source ~/.bash/paths
+source ~/.bash/prompt
+
+for file in `ls $BASHDIR/**/*.bash` ; do
+  . $file
+done
+
+if [ -f ~/.localrc ]; then
+  . ~/.localrc
+fi
