@@ -7,6 +7,7 @@ I have different machines that I use to work. iMac/MacBook at work, iMac at home
 This repo helps me keep everything up to date everywhere, and also setup new environments very fast.
 
 In my environment I work with these things:
+
 * OSX
 * Terminal.app
 * vim
@@ -20,10 +21,10 @@ You can [read the oroginal holman's post on the subject](http://zachholman.com/2
 
 ## install
 
-  `git clone git://github.com/mrsimo/dotfiles`
-  `cd dotfiles`
-  `bundle`
-  `rake install`
+    git clone git://github.com/mrsimo/dotfiles
+    cd dotfiles
+    bundle
+    rake install
 
 You can put it anywhere. I like to have in my Dropbox folder, so that if I ever change something it will be replicated on all my other machines without having to pull the repository.
 
