@@ -6,8 +6,6 @@ set guioptions-=T
 
 "positioned
 winpos 0 0
-colors vividchalk
-set gfn=Menlo:h13
 set anti " antialiasing
 set guioptions=gemc
 set ch=1
@@ -19,17 +17,7 @@ if has("gui_macvim")
   " Command-Shift-F for Ack
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
   map <D-F> :Ack<space>
-
-  " Command-e for ConqueTerm
-  map <D-e> :call StartTerm()<CR>
-
 endif
-
-" ConqueTerm wrapper
-function StartTerm()
-  execute 'ConqueTerm ' . $SHELL . ' --login'
-  setlocal listchars=tab:\ \
-endfunction
 
 " Project Tree
 autocmd VimEnter * NERDTree
