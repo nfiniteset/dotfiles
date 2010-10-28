@@ -1,44 +1,79 @@
-# Mr. Simo does dotfiles
-
-This is a fork of the original dotfiles promoted by [holman](http://github.com/holman). I've personalized this README a bit, but it's mostly untouched.
+This is a fork of the original dotfiles promoted by [holman](http://github.com/holman). This README is based on it aswell.
+It has now diverged a lot, since I've customized everything as I've seen fit, and discarded zsh in favour of bash.
 
 ## dotfiles
 
-Your dotfiles are how you personalize your system. These are mine. The very prejudiced mix: OS X, zsh, Ruby, Rails, git, homebrew, rvm, TextMate. If you match up along most of those lines, you may dig my dotfiles.
+I have different machines that I use to work. iMac/MacBook at work, iMac at home, MacBookAir when travelling. But my development environment should be the same everywhere.
+This repo helps me keep everything up to date everywhere, and also setup new environments very fast.
 
-I was a little tired of having long alias files and everything strewn about (which is extremely common on other dotfiles projects, too). That led to this project being much more topic-centric. I realized I could split a lot of things up into the main areas I used (Ruby, git, system libraries, and so on), so I structured the project accordingly.
+In my environment I work with these things:
+* OSX
+* Terminal.app
+* vim
+* bash
+* git
 
-If you're interested in the philosophy behind why projects like these are awesome, you might want to [read holman's post on the subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+I liked the original project's focus on modularity, so I used it as a starting point for my own dotfiles.
+Everything topic related is in the same folder, making it easier to organize and know where everything is.
+
+You can [read the oroginal holman's post on the subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## install
 
-- `git clone git://github.com/mrsimo/dotfiles`
-- `cd dotfiles`
-- `rake install`
+  `git clone git://github.com/mrsimo/dotfiles`
+  `cd dotfiles`
+  `bundle`
+  `rake install`
 
 You can put it anywhere. I like to have in my Dropbox folder, so that if I ever change something it will be replicated on all my other machines without having to pull the repository.
 
-The main file you'll want to change right off the bat is `zsh/zshrc.symlink`, which sets up a few paths that'll be different on your particular machine.
+The main file you'll want to change right off the bat is `bash/bashrc.symlink`, which sets up a few paths that'll be different on your particular machine.
 
-## topical
+## Terminal.app
 
-Everything's built around topic areas. If you're adding a new area to your forked dotfiles — say, "Java" — you can simply add a `java` directory and put files in there. Anything with an extension of `.zsh` will get automatically included into your shell. Anything with an extension of `.symlink` will get symlinked without extension into `$HOME` when you run `rake install`.
+There's one thing I don't like from Terminal.app, and it's that I can't switch tabs with `⌘+num`. For that there are some SIMBL plugins that can be used.
 
-## what's inside
+When you rake install it will execute `.rb` files, and I've included the `terminal/simbl.rb` which uses my library [geoffrey](http://github.com/mrsimo/geoffrey) to install SIMBL and the plugins I use.
 
-A lot of what's inside is just aliases: `gs` for `git status`, `gl` for `git pull --rebase --prune`, for example. You can browse the `aliases.zsh` files in each topic directory. There's also a collection of scripts in `bin` you can browse. A few notable ones:
+## vim
 
-### system
-- `c` is an autocomplete shortcut to your projects directory. For example, `c git` and then hitting tab will autocomplete to `github`, and then it simply changes to my `github` directory.
-- `check [filename]` is a quick script that tells you whether a domain is available to register.
-- `smartextract [filename]` will extract about a billion different compressed/uncompressed/whatever files.
+As with everyone else, my vim configuration is probably only suited to me, but you can use it as a starting point if you want. I love the colorscheme, [`molokai`](http://www.vim.org/scripts/script.php?script_id=2340) here's a screenshot.
 
-## moar custom
-There are a few things I use to make my life awesome. They're not a required dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
+![My colorscheme](http://dl.dropbox.com/u/31054/vim-ui.png)
 
-- If you want some more colors for things like `ls`, install grc: `brew install grc`.
-- If you install the excellent [rvm](http://rvm.beginrescueend.com) to manage multiple rubies, your current branch will show up in the prompt. Bonus.
+I use pathogen to organize them, so you can find them all in the `.vim/bundle` directory. You can easily remove them and/or install new ones.
 
-## thanks
+I recommend you check the documentation of every one of them, it's usually in the docs folder.
 
-I forked [Ryan Bates](http://github.com/ryanb)' excellent [dotfiles](http://github.com/ryanb/dotfiles) for a couple years before the weight of my changes and tweaks inspired me to finally roll my own. But Ryan's dotfiles were an easy way to get into bash customization, and then to jump ship to zsh a bit later. A decent amount of the code in these dotfiles stem or are inspired from Ryan's original project.
+### File browsing
+
+* [ `NERD_tree` ](http://www.vim.org/scripts/script.php?script_id=1658): Tree view of the file structure. Bound to `<C-t>`.
+* [ `CommandT` ](http://www.vim.org/scripts/script.php?script_id=3025): TextMate-like file finding inside your project. Bound to `<C-f>`.
+* [ `bufexplorer` ](http://www.vim.org/scripts/script.php?script_id=42): Rapidly list your open buffers. Bound to `<C-b>`.
+* [ `ack.vim` ](http://github.com/mileszs/ack.vim): Superfast find in all your projects. Bound to `<D-F>`.
+
+### Enhaced editing
+
+* [ `delimitMate` ](http://github.com/Raimondi/delimitMate): TextMate-like automatic closing of things like quotes, parenthesis, etc. The best I've found.
+* [ `vim-tcomment` ](http://github.com/tsaleh/vim-tcomment): TextMate-like automatic commenting. In my opinion, heaps better than `NERD_Commenter`. Bound to `<D-/>`
+* [ `vim-rails` ](http://github.com/tpope/vim-rails): All the love you need for your Rails needs.
+* [ `vim-surround` ](http://github.com/tpope/vim-surround): Handy extra syntactic sugar to have "surroundings", so you can change quotes by double quotes and things like that.
+* [ `sparkup` ](http://github.com/rstacruz/sparkup/tree/master/vim/): Write html a lot faster (like zencoding).
+* [ `snipmate.vim` ](http://github.com/msanders/snipmate.vim): TextMate-like snippets.
+* [ `vim-repeat` ](http://github.com/tpope/vim-repeat): Helpful to use repeat `.` with plugins.
+* [ `vim-endwise` ](http://github.com/tpope/vim-endwise): Adds `end` smartly in your ruby code.
+* [ `vim-fugitive` ](http://github.com/tpope/vim-fugitive): Awesome plugin if you work with git. See diff's and stuff without leaving your editor.
+
+### Syntax Highlighting
+
+Vim understands a lot of formats already, but there's also improvements. There's also plugins to improve syntax highlighting in any language.
+
+* [ `rainbow_parenthesis` ](http://www.vim.org/scripts/script.php?script_id=1561): Colorizes your parenthesis differently to help you in complex situations.
+* [ `syntastic` ](http://github.com/scrooloose/syntastic): Checks your syntax and tells you when there's syntax errors in your code.
+* [ `vim-javascript` ](http://github.com/pangloss/vim-javascript): Improved support for js files.
+* [ `vim-markdown` ](http://github.com/plasticboy/vim-markdown): Improved support for markdown files.
+* [ `vim-coffee-script` ](http://github.com/kchmck/vim-coffee-script): Support for coffee-script files.
+* [ `vim-cucumber` ](http://github.com/tpope/vim-cucumber): Support for cucumber files.
+* [ `vim-haml` ](http://github.com/tpope/vim-haml): Kick ass support for haml files.
+
+
