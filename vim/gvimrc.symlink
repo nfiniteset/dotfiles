@@ -3,6 +3,9 @@ set fuoptions=maxhorz,maxvert
 
 " Start without the toolbar
 set guioptions-=T
+" set gfn=Menlo:h13
+
+" set relativenumber
 
 "positioned
 winpos 0 0
@@ -18,36 +21,4 @@ if has("gui_macvim")
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
   map <D-F> :Ack<space>
 endif
-
-" Project Tree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-
-" Disable netrw's autocmd, since we're ALWAYS using NERDTree
-runtime plugin/netRwPlugin.vim
-augroup FileExplorer
-  au!
-augroup END
-
-let g:NERDTreeHijackNetrw = 0
-
-" If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
-  if isdirectory(a:directory)
-    call ChangeDirectory(a:directory)
-  endif
-endfunction
-
-" NERDTree utility function
-function s:UpdateNERDTree(stay)
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      NERDTree
-      if !a:stay
-        wincmd p
-      end
-    endif
-  endif
-endfunction
 

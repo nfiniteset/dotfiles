@@ -1,0 +1,10 @@
+" ruby << EO
+"   class Fonter
+"     def set_font
+"       ::VIM::command('set gfn=Menlo:h11')
+"     end
+"   end
+"   $fonter = Fonter.new
+" EOF
+
+set gfn=Menlo:h13

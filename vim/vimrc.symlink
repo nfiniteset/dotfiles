@@ -18,7 +18,6 @@ set history=1000
 
 "colorscheme & font
 colors molokai
-set gfn=Menlo:h13
 
 " -------------------------
 " /GENERAL
@@ -215,6 +214,9 @@ inoremap <C-L> <C-O>:nohls<CR>
 "make <D-intro> jump add new line as in Textmate
 inoremap <D-CR> <ESC>o
 
+"map to NERDtree
+nnoremap <c-t> :NERDTreeToggle<CR>
+
 "map to bufexplorer
 nnoremap <C-B> :BufExplorer<cr>
 
@@ -267,7 +269,6 @@ endif
 "Numbers
 set number
 set numberwidth=5
-set relativenumber
 
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
@@ -281,5 +282,45 @@ function! SetCursorPosition()
     end
 endfunction
 
+" -------------------
+" AUTO & OTHERS
+" -------------------
+
+" Project Tree
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+
+" Disable netrw's autocmd, since we're ALWAYS using NERDTree
+runtime plugin/netRwPlugin.vim
+augroup FileExplorer
+  au!
+augroup END
+
+let g:NERDTreeHijackNetrw = 0
+
+" If the parameter is a directory, cd into it
+function s:CdIfDirectory(directory)
+  if isdirectory(a:directory)
+    call ChangeDirectory(a:directory)
+  endif
+endfunction
+
+" NERDTree utility function
+function s:UpdateNERDTree(stay)
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      NERDTree
+      if !a:stay
+        wincmd p
+      end
+    endif
+  endif
+endfunction
 
 autocmd BufWritePre * :%s/\s\+$//e
+
+" New filetypes
+autocmd BufNewFile,BufRead *.thor setf ruby
+
+ru ~/.vimrclocal
