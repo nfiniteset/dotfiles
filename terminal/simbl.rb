@@ -9,7 +9,7 @@ end
 # And now the two bundles I like to use
 # Blurminal, makes terminal's background blurry :D
 Geoffrey.package do
-  url "http://github.com/mrsimo/Blurminal/raw/master/Blurminal.bundle.zip"
+  url "https://github.com/mrsimo/Blurminal/raw/master/Blurminal.bundle.zip"
   options :file => "Blurminal.bundle"
 
   def install
@@ -21,7 +21,7 @@ end
 
 # Tabswitching, lets you switch tabs with cmd+number
 Geoffrey.package do
-  url "http://github.com/dabeeeenster/terminaltabswitching/raw/master/TerminalTabSwitching.bundle.zip"
+  url "https://github.com/dabeeeenster/terminaltabswitching/raw/master/TerminalTabSwitching.bundle.zip"
   options :file => "TerminalTabSwitching.bundle"
 
   def install
