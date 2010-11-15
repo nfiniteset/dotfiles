@@ -323,4 +323,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " New filetypes
 autocmd BufNewFile,BufRead *.thor setf ruby
 
-ru ~/.vimrclocal
+" Local config
+if filereadable(".vimrclocal")
+  source .vimrclocal
+endif
+
