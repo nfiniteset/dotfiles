@@ -3,3 +3,6 @@ git/gitconfig.symlink
 ec2/ec2.symlink
 zsh/local.zsh
 vim/*vimrclocal
+bin/prodlogs
+xing
+vim/vimrclocal.symlink
