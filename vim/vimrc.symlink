@@ -16,8 +16,8 @@ set backspace=indent,eol,start
 "store lots of :cmdline history
 set history=1000
 
-"colorscheme & font
-colors molokai
+"color theme for terminal vim
+colors pablo
 
 " -------------------------
 " /GENERAL
@@ -80,7 +80,7 @@ set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
 
 set statusline+=%=      "left/right separator
-set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
+" set statusline+=%{StatuslineCurrentHighlight()}\\ \\ "current highlight
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
@@ -130,6 +130,12 @@ map <s-D-Right> <C-w><Right>
 map <s-D-Up> <C-w><Up>
 map <s-D-Down> <C-w><Down>
 
+map <D-H> <C-W>H<CR>
+map <D-V> <C-W>K<CR>
+
+map <D-C> :vsplit<CR>
+map <D-R> :split<CR>
+
 imap <D-1> <Esc>:tabn 1<CR>i
 imap <D-2> <Esc>:tabn 2<CR>i
 imap <D-3> <Esc>:tabn 3<CR>i
@@ -150,6 +156,25 @@ map <D-7> :tabn 7<CR>
 map <D-8> :tabn 8<CR>
 map <D-9> :tabn 9<CR>
 
+" Leader shortcuts for Rails commands
+" Props to @malditogeek
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
+map <Leader>sf :RSfunctionaltest
+
+map <Leader>l <D-Up>i# -*- encoding: utf-8 -*-<CR><Esc>
 
 " -------------------------
 " MAPPINGS
@@ -240,6 +265,19 @@ nnoremap Y y$
 map <C-J> :m +1 <CR>
 map <C-K> :m -2 <CR>
 
+" move faster around up and down
+nnoremap <space> :+15<cr>
+nnoremap <C-Down> :+15<cr>
+inoremap <C-Down> :+15<cr>
+nnoremap <s-space> :-15<cr>
+nnoremap <C-Up> :-15<cr>
+inoremap <C-Up> :-15<cr>
+
+" Experiment so select with shift-arrows
+nnoremap <s-Right> v<Right>
+inoremap <s-Right> <Esc><Right>v<Right>
+vnoremap <s-Right> <Right>
+
 "Duplicate a selection
 vmap D y'>p
 
@@ -287,8 +325,6 @@ endfunction
 " -------------------
 
 " Project Tree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
 " Disable netrw's autocmd, since we're ALWAYS using NERDTree
@@ -324,7 +360,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufNewFile,BufRead *.thor setf ruby
 
 " Local config
-if filereadable(".vimrclocal")
-  source .vimrclocal
-endif
+" if filereadable("~/.vimrclocal")
+"   source ~/.vimrclocal
+" endif
 

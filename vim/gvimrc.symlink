@@ -3,7 +3,10 @@ set fuoptions=maxhorz,maxvert
 
 " Start without the toolbar
 set guioptions-=T
-" set gfn=Menlo:h13
+set gfn=Menlo:h13
+
+"colorscheme & font
+colors molokai
 
 " set relativenumber
 
@@ -18,12 +21,16 @@ au FocusLost * :wa
 
 if has("gui_macvim")
   " Command-Shift-F for Ack
-  macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
+  au GUIEnter * set fullscreen
+  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-K>
   map <D-F> :Ack<space>
+  " Full screen mode
 endif
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " Load local config
-if filereadable(".gvimrclocal")
-  source .gvimrclocal
-endif
-
+" if filereadable(".gvimrclocal")
+"   source .gvimrclocal
+" endif
