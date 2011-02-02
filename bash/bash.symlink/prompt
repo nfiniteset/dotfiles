@@ -53,10 +53,23 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
     fi
   }
 
+  is_the_xing_on(){
+    if [[ $XE == "" ]]
+    then
+      echo ""
+    else
+      echo "$XE "
+    fi
+  }
+
 # /Pretty methods
 
 
-export PS1="${PURPLE}\$(rvm_prompt)${BGREEN}\$(git_dirty)${BBLUE}[${NORMAL}\w${BBLUE}] ${BBLUE}$ ${NORMAL}"
+# Prompt
+export PS1="${PURPLE}\$(rvm_prompt)${BGREEN}\$(git_dirty)${BBLUE}[${NORMAL}\w${BBLUE}] ${CYAN}\$(is_the_xing_on)${BBLUE}$ ${NORMAL}"
+
+# Window title
+export PROMPT_COMMAND='echo -ne "\033]0;$XE ${PWD/#$HOME/~}\007"'
 
 export TERM="xterm-color"
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
